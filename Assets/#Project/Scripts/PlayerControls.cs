@@ -10,7 +10,7 @@ public class PlayerControls : MonoBehaviour
     private InputAction Movement;
     private CharacterController characterController;
 
-    //private Camera camera;
+    private Camera camera;
     private Vector3 forward, right;
     public bool isMoving { get; private set; }
 
@@ -23,13 +23,13 @@ public class PlayerControls : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         Movement = playerInput.actions["Movement"];
         characterController = GetComponent<CharacterController>();
-        //camera = Camera.main;
+        camera = Camera.main;
     }
 
     void Update()
     {
-        //forward = camera.transform.forward;
-        //right = camera.transform.right;
+        forward = camera.transform.forward;
+        right = camera.transform.right;
 
         forward = Vector3.ProjectOnPlane(forward, Vector3.up);
         right = Vector3.ProjectOnPlane(right, Vector3.up).normalized;

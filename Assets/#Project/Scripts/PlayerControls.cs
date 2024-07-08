@@ -10,7 +10,7 @@ public class PlayerControls : MonoBehaviour
     private InputAction Movement;
     private CharacterController characterController;
 
-    private Camera camera;
+    private new Camera camera;
     private Vector3 forward, right;
     public bool isMoving { get; private set; }
 

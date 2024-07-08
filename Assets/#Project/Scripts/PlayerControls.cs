@@ -14,7 +14,8 @@ public class PlayerControls : MonoBehaviour
     private Vector3 forward, right;
     public bool isMoving { get; private set; }
 
-    [SerializeField] float speed;
+    [SerializeField] float walkSpeed;
+    [SerializeField] float sprintSpeed;
 
 
 
@@ -41,6 +42,6 @@ public class PlayerControls : MonoBehaviour
 
         Vector3 finalMovement = movement.x * right + movement.y * forward;
 
-        characterController.SimpleMove(finalMovement * speed);
+        characterController.SimpleMove(finalMovement * walkSpeed);
     }
 }

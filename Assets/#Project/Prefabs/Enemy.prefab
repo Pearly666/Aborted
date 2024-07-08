@@ -173,5 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   agent: {fileID: 0}
-  rayon: 15
+  rayon: 8
   WayPoint: {fileID: 0}

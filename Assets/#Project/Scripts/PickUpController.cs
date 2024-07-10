@@ -74,11 +74,11 @@ public class PickUpController : MonoBehaviour
         rb.isKinematic = false;
         coll.isTrigger = false;
 
-        rb.velocity = player.GetComponent<Rigidbody>().velocity;
+        //rb.velocity = player.GetComponent<Rigidbody>().velocity;
 
         //calcul de la force du lancer
-        rb.AddForce(fpsCam.forward * dropForwardForce, ForceMode.Impulse);
-        rb.AddForce(fpsCam.up * dropUpwardForce, ForceMode.Impulse);
+        //rb.AddForce(fpsCam.forward * dropForwardForce, ForceMode.Impulse);
+        //rb.AddForce(fpsCam.up * dropUpwardForce, ForceMode.Impulse);
 
         //pour ajouter une rotation à l'objet
         //float random = Random.Range(-1f, 1f);

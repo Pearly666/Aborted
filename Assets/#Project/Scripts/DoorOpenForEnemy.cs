@@ -16,7 +16,7 @@ public class DoorOpenForEnemy : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Enemy") && isTriggered == false)
+        if (other.CompareTag("Enemy") && isTriggered == true)
         {
             transform.GetComponent<Animator>().SetTrigger("Activate");
             isTriggered = false;

@@ -37,4 +37,10 @@ public class ChaseState : IState
         Debug.Log("Exiting ChaseState");
     }
 
+
+    // public void GetToPlayerClosestPoint(Transform[] target)
+    // {
+    //     float closestDistanceSqr = Mathf.Infinity;
+    //     Vector3 currentPosition = .position;
+    // }
 }

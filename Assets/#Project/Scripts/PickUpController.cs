@@ -39,8 +39,7 @@ public class PickUpController : MonoBehaviour
         {
             PickUp();
         }
-
-        if (equipped && Input.GetMouseButtonDown(0))
+        else if (equipped && Input.GetMouseButtonDown(0))
         {
             Drop();
         }
@@ -50,6 +49,9 @@ public class PickUpController : MonoBehaviour
     {
         equipped = true;
         slotFull = true;
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
+        coll.isTrigger = true;
 
         //placement de l'objet dans la mains
         transform.SetParent(hand);
@@ -57,9 +59,7 @@ public class PickUpController : MonoBehaviour
         transform.localRotation = Quaternion.identity;
        // transform.localScale = Vector3.one;
 
-        rb.velocity = Vector3.zero;
-        rb.isKinematic = true;
-        coll.isTrigger = true;
+        
 
         saltBehaviour.enabled = true;
     }
@@ -77,8 +77,8 @@ public class PickUpController : MonoBehaviour
         //rb.velocity = player.GetComponent<Rigidbody>().velocity;
 
         //calcul de la force du lancer
-        //rb.AddForce(fpsCam.forward * dropForwardForce, ForceMode.Impulse);
-        //rb.AddForce(fpsCam.up * dropUpwardForce, ForceMode.Impulse);
+        rb.AddForce(fpsCam.forward * dropForwardForce, ForceMode.Impulse);
+        rb.AddForce(fpsCam.up * dropUpwardForce, ForceMode.Impulse);
 
         //pour ajouter une rotation à l'objet
         //float random = Random.Range(-1f, 1f);

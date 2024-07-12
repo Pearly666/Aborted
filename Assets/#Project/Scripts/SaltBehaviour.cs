@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class SaltBehaviour : MonoBehaviour
 {
-    public ParticleSystem salt_particle;
+    public GameObject saltParticle;
     public GameObject saltContainer;
-    private void ThrowSalt()
-    {
     
-    }
+
+    void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Ground"))
+        {
+            Instantiate(saltParticle,transform.position, Quaternion.identity);
+            //salt_particle.transform.position = transform.position;
+            
+        }
+        }
 }
 
 

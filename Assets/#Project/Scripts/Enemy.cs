@@ -5,7 +5,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof (NavMeshAgent))]  //Enforce l'utilisation d'un NavMeshAgent
+[RequireComponent(typeof (NavMeshAgent))]  
 
 public class Enemy : MonoBehaviour
 {

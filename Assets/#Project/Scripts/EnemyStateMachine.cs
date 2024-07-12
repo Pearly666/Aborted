@@ -9,11 +9,13 @@ public class EnemyStateMachine
 
     public ChaseState chaseState;
     public PatrolState patrolState;
+    public InvestigateState investigateState;
 
     public EnemyStateMachine(NavMeshAgent agent, Transform playerTransform, Enemy enemy)
     {
         chaseState = new ChaseState(enemy, this);
         patrolState = new PatrolState(enemy, this);
+        investigateState = new InvestigateState(enemy, this);
     }
 
     public void Initialize(IState startingState)

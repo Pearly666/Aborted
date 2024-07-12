@@ -9,6 +9,7 @@ public class ChaseState : IState
     private Transform target;
     private Enemy enemy;
     private EnemyStateMachine stateMachine;
+    public Transform [] WayPoint;
 
     public ChaseState(Enemy enemy, EnemyStateMachine stateMachine)
     {
@@ -28,7 +29,7 @@ public class ChaseState : IState
         agent.SetDestination(target.position);
         if (!enemy.CanSeePlayer())
         {
-            stateMachine.TransitionTo(stateMachine.patrolState);
+            stateMachine.TransitionTo(stateMachine.investigateState);
         }
     }
 
@@ -37,10 +38,4 @@ public class ChaseState : IState
         Debug.Log("Exiting ChaseState");
     }
 
-
-    // public void GetToPlayerClosestPoint(Transform[] target)
-    // {
-    //     float closestDistanceSqr = Mathf.Infinity;
-    //     Vector3 currentPosition = .position;
-    // }
 }

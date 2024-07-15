@@ -10,7 +10,6 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] public Transform target;
-    
     [HideInInspector] public NavMeshAgent agent;
     [SerializeField] public float rayon;
 
@@ -22,6 +21,7 @@ public class Enemy : MonoBehaviour
     {
         target = GameObject.FindWithTag("Player").transform;
         WayPoint = GameObject.FindWithTag("WayPoint").transform;
+
     }
     void Start()
     {
@@ -48,7 +48,6 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
-
         return false;
     }
     
@@ -57,5 +56,13 @@ public class Enemy : MonoBehaviour
         stateMachine.Update();
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Salt"))
+        {
+            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
+        }
+    }
 
 }

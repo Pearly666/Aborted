@@ -8,6 +8,8 @@ TagManager:
   - WayPoint
   - Salt
   - Ground
+  - Trigger
+  - Door
   layers:
   - Default
   - TransparentFX

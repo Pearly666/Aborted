@@ -1,25 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(DoorBehavior))]
 public class DoorOpenForEnemy : MonoBehaviour
-{
-    private bool isTriggered = false;
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy") && isTriggered == false)
-        {
-            transform.GetComponent<Animator>().SetTrigger("Activate");
-            isTriggered = true;
-        }
+{   
+    private DoorBehavior door;
+
+    void Start(){
+        door = GetComponent<DoorBehavior>();
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") && isTriggered == true)
+        if (other.CompareTag("Enemy")&& door.isOpen == false)
         {
-            transform.GetComponent<Animator>().SetTrigger("Activate");
-            isTriggered = false;
+            door.Interact();
         }
     }
+    // void OnTriggerExit(Collider other)
+    // {
+    //     if (other.CompareTag("Enemy") && isOpen == true)
+    //     {
+    //         transform.GetComponent<Animator>().SetTrigger("Activate");
+    //         isOpen = false;
+    //     }
+    // }
 }

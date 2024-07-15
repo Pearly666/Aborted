@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 138046921432827607}
   - component: {fileID: 4527010901486363446}
   - component: {fileID: 6293207163344921361}
+  - component: {fileID: 7705223987042458847}
   m_Layer: 0
   m_Name: Salt_Particules (1)
   m_TagString: Salt
@@ -27,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 6084091395869542984}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.222, y: 1.318, z: -14.547}
-  m_LocalScale: {x: 0.28840923, y: 0.28840923, z: 0.28840923}
+  m_LocalPosition: {x: -0.22119, y: 0.70732, z: -14.567}
+  m_LocalScale: {x: 1.3356386, y: 1.3356386, z: 1.3356386}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -4802,7 +4803,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 0.2
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -4830,3 +4831,24 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!135 &7705223987042458847
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6084091395869542984}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.5
+  m_Center: {x: -0.0012314916, y: 0.93, z: 0.030753434}

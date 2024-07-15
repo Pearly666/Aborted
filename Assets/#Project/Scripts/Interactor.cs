@@ -26,10 +26,14 @@ public class Interactor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
+            Debug.DrawRay(r.origin, r.direction * 100, Color.red, 10f );
             if (Physics.Raycast(r, out RaycastHit hitInfo, InteractorRange))
-            {
-                if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
+            {   Debug.Log(hitInfo.collider.name);
+                if (hitInfo.collider.TryGetComponent(out IInteractable interactObj))
                 {
+                    interactObj.Interact();
+                }
+                else if(hitInfo.collider.transform.parent!=null && hitInfo.collider.transform.parent.TryGetComponent(out interactObj)){
                     interactObj.Interact();
                 }
             }

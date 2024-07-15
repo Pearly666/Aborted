@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  door: {fileID: 7663986494645884147, guid: b574e402f9b701a49a805a1e327421fc, type: 3}
   agent: {fileID: 0}
   rayon: 8
   WayPoint: {fileID: 0}

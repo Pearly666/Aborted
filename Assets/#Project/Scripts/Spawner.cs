@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
                     GameObject player = GameObject.FindGameObjectWithTag("Player");
                     Vector3 monsterPos = player.transform.position + player.transform.forward*5f;
                     noiseData = 0;
-                    Instantiate(Enemy, monsterPos, transform.rotation);
+                    Instantiate(Enemy, monsterPos, transform.rotation * Quaternion.Euler (0f, 180f, 0f));
                     isInstantiated = true;
                     //stateMachine.TransitionTo(stateMachine.chaseState);
                     

@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public Transform target;
     [HideInInspector] public NavMeshAgent agent;
     [SerializeField] public float rayon;
+    [SerializeField] float patrolTime = 15;
 
     [SerializeField] public Transform WayPoint;
 
@@ -54,6 +55,11 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         stateMachine.Update();
+        patrolTime -= Time.deltaTime;
+        if(patrolTime < 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider other)

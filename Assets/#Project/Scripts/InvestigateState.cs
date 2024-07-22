@@ -43,18 +43,17 @@ public class InvestigateState : IState
     public void GetToPlayerClosestPoint(Transform[] Waypoint)
     {
         Transform bestPoint = null;
-        float closestDistanceSqr = Mathf.Infinity;
+        float closestDistance = Mathf.Infinity;
         Vector3 currentPosition = target.transform.position;
 
         foreach(Transform potentialPoint in WayPoint)
-        {
-            if (potentialPoint.tag == "WayPoint") continue;
-            
-            Vector3 directionToPoint = potentialPoint.position - currentPosition;
-            float dSqrToPoint = directionToPoint.sqrMagnitude;
-            if(dSqrToPoint < closestDistanceSqr)
+        {   
+            if(Mathf.Abs(potentialPoint.position.y - currentPosition.y) > 1.5f) continue;
+
+            float distanceToPoint = Vector3.Distance(currentPosition, potentialPoint.position);
+            if(distanceToPoint < closestDistance)
             {
-                closestDistanceSqr = dSqrToPoint;
+                closestDistance = distanceToPoint;
                 bestPoint = potentialPoint;
                 agent.SetDestination(bestPoint.position);
             }

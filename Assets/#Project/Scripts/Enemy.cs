@@ -60,6 +60,7 @@ public class Enemy : MonoBehaviour
     {
         if(other.CompareTag("Salt"))
         {
+            Spawner.isInstantiated = false;
             this.gameObject.SetActive(false);
             Destroy(this.gameObject);
         }

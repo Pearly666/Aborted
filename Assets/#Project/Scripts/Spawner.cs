@@ -4,23 +4,44 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] float timer = 3f;
     public GameObject Enemy;
-    public int mobs = 0 ;
-    void Start()
-    {
-        
-    }
-
     
-    void Update()
-    {
-        timer -= Time.deltaTime;
-        if (timer <= 0 && mobs < 1)
+    [SerializeField] int toleratedNoise;
+    static int noiseData = 0 ;
+    private EnemyStateMachine stateMachine;
+    static public bool isInstantiated = false ;
+    public bool isTriggered = false;
+
+    void OnTriggerEnter(Collider other)
         {
-            Instantiate(Enemy, transform.position, transform.rotation);
-            mobs += 1;
-            timer = 3f;
+            if(isTriggered == false && other.CompareTag("Player"))
+                {
+                    noiseData += 2;
+                    Debug.Log("noise is at " + noiseData);
+                    isTriggered = true;
+                }
+            if(noiseData >= toleratedNoise && isInstantiated == false)
+                {
+                    GameObject player = GameObject.FindGameObjectWithTag("Player");
+                    Vector3 monsterPos = player.transform.position + player.transform.forward*5f;
+                    noiseData = 0;
+                    Instantiate(Enemy, monsterPos, transform.rotation);
+                    isInstantiated = true;
+                    //stateMachine.TransitionTo(stateMachine.chaseState);
+                    
+                }
+        }
+    
+    void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            isTriggered = false;
         }
     }
+
+    // void Update()
+    // {
+        
+    // }
 }

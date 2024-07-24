@@ -6,14 +6,18 @@ using UnityEngine;
 public class DoorBehavior : MonoBehaviour, IInteractable
 {
     public Animator doorAnimator;
+    public bool isLocked = false;
 
     void Start(){
-        doorAnimator = GetComponentInChildren<Animator>();
+        if(doorAnimator == null){
+            doorAnimator = GetComponentInChildren<Animator>();
+        }
     }
 
     public bool isOpen = false;
     public void Interact()
     {   
+        if(isLocked) return;
 
         if(doorAnimator.GetCurrentAnimatorStateInfo(0).IsName("OpenTheDoor") || doorAnimator.GetCurrentAnimatorStateInfo(0).IsName("CloseTheDoor")){
             return;

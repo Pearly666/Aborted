@@ -6,11 +6,13 @@ using TMPro;
 public class PlayerInventory : MonoBehaviour
 {
     public TMP_Text inventoryLabel;
-    int lastInventory;
+    public static int lastInventory;
+    public static bool hasKey;
 
     void OnEnable()
     {
         LetterBehaviour.onPickup.AddListener(UpdateInventory);
+        
     }
 
     void OnDisable()
@@ -25,7 +27,11 @@ public class PlayerInventory : MonoBehaviour
         {
             inventoryLabel.SetText($"Letters: {value} / 10");
             lastInventory = value;
+            if(lastInventory == 10){
+                FindObjectOfType<KeyBehaviour>(includeInactive: true).gameObject.SetActive(true);
+            }
         }
     }
+
 
 }

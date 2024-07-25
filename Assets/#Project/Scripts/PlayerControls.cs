@@ -9,13 +9,16 @@ public class PlayerControls : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction Movement;
     private CharacterController characterController;
+    public AudioSource audioSource;
+    public AudioClip chasedBeat;
+    public AudioClip heartbeat;
 
     private new Camera camera;
     private Vector3 forward, right;
     public bool isMoving { get; private set; }
+    private EnemyStateMachine stateMachine;
 
     [SerializeField] float walkSpeed;
-    [SerializeField] float sprintSpeed;
 
 
 
@@ -25,6 +28,8 @@ public class PlayerControls : MonoBehaviour
         Movement = playerInput.actions["Movement"];
         characterController = GetComponent<CharacterController>();
         camera = Camera.main;
+        audioSource.PlayOneShot(heartbeat);
+
     }
 
     void Update()
@@ -43,5 +48,22 @@ public class PlayerControls : MonoBehaviour
         Vector3 finalMovement = movement.x * right + movement.y * forward;
 
         characterController.SimpleMove(finalMovement * walkSpeed);
+
+        //void IsChased();
+        
     }
+
+    // void IsChased()
+    // {
+    //     if(stateMachine.chaseState.isChasing == true)
+    //     {
+    //         audioSource.Stop();
+    //         audioSource.PlayOneShot(chasedBeat);
+    //     }
+    //     if(stateMachine.chaseState.isChasing == false)
+    //     {
+    //         audioSource.Stop();
+    //         audioSource.PlayOneShot(chasedBeat);
+    //     }
+    // }
 }

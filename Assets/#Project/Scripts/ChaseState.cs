@@ -10,6 +10,7 @@ public class ChaseState : IState
     private Enemy enemy;
     private EnemyStateMachine stateMachine;
     public Transform [] WayPoint;
+    public bool isChasing = false;
 
     public ChaseState(Enemy enemy, EnemyStateMachine stateMachine)
     {
@@ -22,6 +23,7 @@ public class ChaseState : IState
     public void Enter()
     {
         Debug.Log("Entering ChaseState");
+        isChasing = true;
     }
 
     public void Update()
@@ -36,6 +38,8 @@ public class ChaseState : IState
     public void Exit()
     {
         Debug.Log("Exiting ChaseState");
+        //audioSource.Stop();
+        isChasing = false;
     }
 
 }

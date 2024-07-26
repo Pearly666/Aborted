@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     public GameObject Enemy;
     
     [SerializeField] int toleratedNoise;
-    static int noiseData = 0 ;
+    public static int noiseData = 0 ;
     private EnemyStateMachine stateMachine;
     static public bool isInstantiated = false ;
     public bool isTriggered = false;
@@ -39,9 +39,4 @@ public class Spawner : MonoBehaviour
             isTriggered = false;
         }
     }
-
-    // void Update()
-    // {
-        
-    // }
 }

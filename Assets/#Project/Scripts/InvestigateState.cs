@@ -34,7 +34,7 @@ public class InvestigateState : IState
         {
         stateMachine.TransitionTo(stateMachine.patrolState);
         }
-        if (enemy.CanSeePlayer())
+        else if (enemy.CanSeePlayer())
         {
             stateMachine.TransitionTo(stateMachine.chaseState);
         }

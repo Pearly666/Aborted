@@ -18,6 +18,12 @@ public class Enemy : MonoBehaviour
 
     private EnemyStateMachine stateMachine;
 
+    public bool isChasing
+    {
+        get { return stateMachine.chaseState.isChasing;}
+        private set{}
+    }
+
     void Awake()
     {
         target = GameObject.FindWithTag("Player").transform;
@@ -58,7 +64,9 @@ public class Enemy : MonoBehaviour
         patrolTime -= Time.deltaTime;
         if(patrolTime < 0)
         {
+            Spawner.noiseData = 0;
             Destroy(this.gameObject);
+            Spawner.isInstantiated = false;
         }
     }
 
@@ -66,9 +74,12 @@ public class Enemy : MonoBehaviour
     {
         if(other.CompareTag("Salt"))
         {
+            isChasing = false;
             Spawner.isInstantiated = false;
+            Spawner.noiseData = 0;
             this.gameObject.SetActive(false);
             Destroy(this.gameObject);
+            
         }
     }
 

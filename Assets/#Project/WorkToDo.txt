@@ -1,0 +1,43 @@
+Character controller : OK
+Enemy Behaviour : OK
+                  + rajouter le kill player qui renvoie au menu
+Spawner: OK
+Triggers : 
+Pickup letters : OK
+Lights: OK
+Sounds:
+Mic features: 
+Throw salt on enemy: OK
+Salt: OK
+Main menu: OK
+End menu: design OK
+Pause menu: OK
+Functional Settings menu: son, lumière, touches ?
+Collectable display: OK
+voix off :
+Enemy design:
+Level design: OK
+Doors Animators: OK
+Crosshair: OK
+Shaders: +/- OK
+Afficher les commandes: 
+
+
+AUJOURD'HUI:
+-design du monstre
+-sound desgin
+-régler bug de lumière à certains endroits
+-afficher "take" au-dessus des objets collectables ?
+-implémenter mort du joueur (avec screamer)
+
+
+
+Character design ?
+faire "monter et descendre" le player quand il marche pour donner une meilleure impression ? 
+
+sound design:
+- téléphone qui sonne
+
+
+bugs:
+-si démon chassé avec du sel, le heartbeat chased continue de jouer

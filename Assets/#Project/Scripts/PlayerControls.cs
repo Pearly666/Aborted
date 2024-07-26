@@ -9,14 +9,12 @@ public class PlayerControls : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction Movement;
     private CharacterController characterController;
-    public AudioSource audioSource;
-    public AudioClip chasedBeat;
-    public AudioClip heartbeat;
-
+    public AudioSource heartBeatAudioSource, chasedBeatAudioSource;
+    
     private new Camera camera;
     private Vector3 forward, right;
     public bool isMoving { get; private set; }
-    private EnemyStateMachine stateMachine;
+    private Enemy enemy;
 
     [SerializeField] float walkSpeed;
 
@@ -28,8 +26,7 @@ public class PlayerControls : MonoBehaviour
         Movement = playerInput.actions["Movement"];
         characterController = GetComponent<CharacterController>();
         camera = Camera.main;
-        audioSource.PlayOneShot(heartbeat);
-
+        heartBeatAudioSource.Play();
     }
 
     void Update()
@@ -49,21 +46,23 @@ public class PlayerControls : MonoBehaviour
 
         characterController.SimpleMove(finalMovement * walkSpeed);
 
-        //void IsChased();
+        if (enemy == null) enemy = FindObjectOfType<Enemy>();
+        if (enemy != null) IsChased();
         
     }
 
-    // void IsChased()
-    // {
-    //     if(stateMachine.chaseState.isChasing == true)
-    //     {
-    //         audioSource.Stop();
-    //         audioSource.PlayOneShot(chasedBeat);
-    //     }
-    //     if(stateMachine.chaseState.isChasing == false)
-    //     {
-    //         audioSource.Stop();
-    //         audioSource.PlayOneShot(chasedBeat);
-    //     }
-    // }
+    void IsChased()
+    {
+        if(enemy.isChasing)
+        {
+            Debug.Log("Heartbeat should intensifies");
+            heartBeatAudioSource.Stop();
+            if (!chasedBeatAudioSource.isPlaying) chasedBeatAudioSource.Play();
+        }
+        else
+        {
+            chasedBeatAudioSource.Stop();
+            if (!heartBeatAudioSource.isPlaying) heartBeatAudioSource.Play();
+        }
+    }
 }

@@ -5,6 +5,10 @@ using UnityEngine.AI;
 
 public class ChaseState : IState
 {
+    private Animator enemyAnim
+    {
+        get { return enemy.GetComponent<Animator>(); }
+    }
     private NavMeshAgent agent;
     private Transform target;
     private Enemy enemy;
@@ -18,12 +22,15 @@ public class ChaseState : IState
         this.stateMachine = stateMachine;
         agent = enemy.agent;
         target = enemy.target;
+
     }
 
     public void Enter()
     {
         Debug.Log("Entering ChaseState");
+        enemyAnim.SetBool("isChasing", true);
         isChasing = true;
+        agent.speed = 3.5f;
     }
 
     public void Update()
@@ -38,8 +45,9 @@ public class ChaseState : IState
     public void Exit()
     {
         Debug.Log("Exiting ChaseState");
-        //audioSource.Stop();
+        enemyAnim.SetBool("isChasing", false);
         isChasing = false;
+        agent.speed = 2f;
     }
 
 }

@@ -7,11 +7,18 @@ public class LetterBehaviour : MonoBehaviour, IInteractable
 {
     public static int papers;
     public static UnityEvent<int>onPickup = new();
+    public string letterName;
+    
+
     public void Interact()
     {
-        this.gameObject.SetActive(false);
+        
         Debug.Log("Lettre ramassée");
+        LetterManager.Instance.CollectLetter(letterName);
         papers ++;
         onPickup?.Invoke(papers);
+        LetterManager.Instance.CollectLetter(letterName);
+        this.gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

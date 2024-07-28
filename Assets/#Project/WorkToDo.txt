@@ -32,11 +32,10 @@ AUJOURD'HUI:
 
 
 
-Character design ?
-faire "monter et descendre" le player quand il marche pour donner une meilleure impression ? 
-
 sound design:
 - téléphone qui sonne
+- bruits de pas 
+- cris du démon
 
 
 bugs:

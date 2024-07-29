@@ -16,8 +16,8 @@ public class Letter
 public class LetterManager : MonoBehaviour
 {
      public List<Letter> lettersInOrder; // Ordre des lettres à lire
-    private List<string> collectedLetters = new List<string>(); // Lettres collectées
-    private int currentLetterIndex = 0;
+    [SerializeField]private List<string> collectedLetters = new List<string>(); // Lettres collectées
+    [SerializeField]private int currentLetterIndex = 0;
 
     private AudioSource audioSource;
     private LetterUI letterUI;
@@ -59,8 +59,7 @@ public class LetterManager : MonoBehaviour
 
     private void TryPlayNextLetter()
     {
-        if (currentLetterIndex < lettersInOrder.Count &&
-            collectedLetters.Contains(lettersInOrder[currentLetterIndex].letterName))
+        if (currentLetterIndex < lettersInOrder.Count)
         {
             Debug.Log("Playing audio and displaying UI for letter: " + lettersInOrder[currentLetterIndex].letterName);
             PlayLetterAudio(lettersInOrder[currentLetterIndex].offvoice);

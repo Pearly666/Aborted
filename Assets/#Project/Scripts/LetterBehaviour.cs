@@ -17,7 +17,6 @@ public class LetterBehaviour : MonoBehaviour, IInteractable
         LetterManager.Instance.CollectLetter(letterName);
         papers ++;
         onPickup?.Invoke(papers);
-        LetterManager.Instance.CollectLetter(letterName);
         this.gameObject.SetActive(false);
         Destroy(gameObject);
     }

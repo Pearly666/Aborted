@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR;
 
 public class EnemyStateMachine
 {
@@ -34,5 +35,18 @@ public class EnemyStateMachine
         CurrentState?.Exit();
         CurrentState = nextState;
         nextState.Enter();
+    }
+
+    public void SetChasingState(bool isChasing)
+    {
+        chaseState.isChasing = isChasing;
+        if (isChasing)
+        {
+            TransitionTo(chaseState);
+        }
+        else
+        {
+            TransitionTo(investigateState);
+        }
     }
 }

@@ -14,7 +14,7 @@ End menu: design OK
 Pause menu: OK
 Functional Settings menu: son, lumière, touches ?
 Collectable display: OK
-voix off :
+voix off : OK
 Enemy design:
 Level design: OK
 Doors Animators: OK

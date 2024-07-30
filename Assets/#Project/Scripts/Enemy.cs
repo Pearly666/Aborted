@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     public bool isChasing
     {
         get { return stateMachine.chaseState.isChasing;}
-        private set{}
+        set { stateMachine.SetChasingState(value);}
     }
 
     void Awake()
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         {
             if(hit.collider.CompareTag("Player"))
             {
-                if(Vector3.Angle(enemyFacing, enemyToPlayer) <= 45f)
+                if(Vector3.Angle(enemyFacing, enemyToPlayer) <= 180f)
                 {
                     return true;
                 }
@@ -79,7 +79,6 @@ public class Enemy : MonoBehaviour
             Spawner.noiseData = 0;
             this.gameObject.SetActive(false);
             Destroy(this.gameObject);
-            
         }
     }
 

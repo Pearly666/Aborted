@@ -11,10 +11,24 @@ public class AudioLoudnessDetector : MonoBehaviour
 
 
 
-
     private void Start()
     {
         MicrophoneToAudioClip(0);
+    }
+
+    private void OnEnable()
+    {
+        MicrophoneSelector.OnMicrophoneChoiceChanged += ChangeMicrophoneSource;
+    }
+
+    private void ChangeMicrophoneSource(int deviceIndex)
+    {
+        MicrophoneToAudioClip(deviceIndex);
+    }
+
+    private void OnDisable()
+    {
+        MicrophoneSelector.OnMicrophoneChoiceChanged -= ChangeMicrophoneSource;
     }
 
     private void MicrophoneToAudioClip(int microphoneIndex)

@@ -12,15 +12,15 @@ public class LetterUI : MonoBehaviour
 {
     Debug.Log("ShowLetterUI called.");
 
-    // foreach (Transform child in LetterCanva.transform)
-    //     {
-    //         if (child.gameObject != uiElement)
-    //         {
-    //             child.gameObject.SetActive(false);
-    //         }
-    //     }
+    foreach (Transform child in LetterCanva.transform)
+        {
+            if (child.gameObject != uiElement)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
 
-
+        
     if (uiElement != null)
     {
         uiElement.SetActive(true); // Afficher l'élément UI

@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
     public TMP_Text inventoryLabel;
     public static int lastInventory;
     public static bool hasKey;
+    public AudioSource whispers;
 
     void OnEnable()
     {
@@ -28,6 +29,7 @@ public class PlayerInventory : MonoBehaviour
             inventoryLabel.SetText($"Letters: {value} / 10");
             lastInventory = value;
             if(lastInventory == 10){
+                whispers.Play();
                 FindObjectOfType<KeyBehaviour>(includeInactive: true).gameObject.SetActive(true);
             }
         }

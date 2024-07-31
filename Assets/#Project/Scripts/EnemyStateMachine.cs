@@ -37,16 +37,16 @@ public class EnemyStateMachine
         nextState.Enter();
     }
 
-    public void SetChasingState(bool isChasing)
-    {
-        chaseState.isChasing = isChasing;
-        if (isChasing)
-        {
-            TransitionTo(chaseState);
-        }
-        else
-        {
-            TransitionTo(investigateState);
-        }
-    }
+    // public void SetChasingState(bool isChasing)
+    // {
+    //     chaseState.isChasing = isChasing;
+    //     if (isChasing)
+    //     {
+    //         TransitionTo(chaseState);
+    //     }
+    //     else
+    //     {
+    //         TransitionTo(investigateState);
+    //     }
+    // }
 }

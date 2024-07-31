@@ -31,6 +31,15 @@ public class PlayerControls : MonoBehaviour
 
     void Update()
     {
+        Walk();
+
+        if (enemy == null) enemy = FindObjectOfType<Enemy>();
+        IsChased();
+        
+    }
+
+    void Walk()
+    {
         forward = camera.transform.forward;
         right = camera.transform.right;
 
@@ -45,15 +54,10 @@ public class PlayerControls : MonoBehaviour
         Vector3 finalMovement = movement.x * right + movement.y * forward;
 
         characterController.SimpleMove(finalMovement * walkSpeed);
-
-        if (enemy == null) enemy = FindObjectOfType<Enemy>();
-        if (enemy != null) IsChased();
-        
     }
-
     void IsChased()
     {
-        if(enemy.isChasing)
+        if(enemy != null && enemy.isChasing)
         {
             Debug.Log("Heartbeat should intensifies");
             heartBeatAudioSource.Stop();

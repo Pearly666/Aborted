@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class ChaseState : IState
 {
@@ -15,6 +16,7 @@ public class ChaseState : IState
     private EnemyStateMachine stateMachine;
     public Transform [] WayPoint;
     public bool isChasing = false;
+    
 
     public ChaseState(Enemy enemy, EnemyStateMachine stateMachine)
     {

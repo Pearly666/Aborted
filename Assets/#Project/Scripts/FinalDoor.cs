@@ -8,7 +8,7 @@ public class FinalDoor : MonoBehaviour
 {
     public PlayerInventory playerInventory;
     private DoorBehavior doorBehavior;
-
+    public GameObject chains;
     public UnityEvent whenUnlocked;
 
 
@@ -25,6 +25,7 @@ public class FinalDoor : MonoBehaviour
     {
         if(PlayerInventory.hasKey == true)
         {
+            chains.SetActive(false);
             doorBehavior.isLocked = false;
             whenUnlocked?.Invoke();
             Debug.Log("Final door is opened");

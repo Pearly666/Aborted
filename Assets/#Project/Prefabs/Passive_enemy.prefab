@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 733168051605750173, guid: b00118848f819bb4dbb9faa7c7a7c355,
         type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1175270582140700350, guid: b00118848f819bb4dbb9faa7c7a7c355,
         type: 3}
@@ -253,3 +253,4 @@ MonoBehaviour:
   detector: {fileID: 0}
   loudnessSensibility: 100
   threshold: 0.1
+  Enemy: {fileID: 0}

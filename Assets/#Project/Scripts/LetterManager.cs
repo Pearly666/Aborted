@@ -20,7 +20,6 @@ public class LetterManager : MonoBehaviour
     [SerializeField]private int currentLetterIndex = 0;
 
     private AudioSource audioSource;
-    private LetterUI letterUI;
 
     //Singleton
     public static LetterManager Instance;
@@ -41,12 +40,6 @@ public class LetterManager : MonoBehaviour
         if(audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
-        }
-
-        letterUI = FindObjectOfType<LetterUI>();
-        if (letterUI == null)
-        {
-            Debug.LogError("LetterUI not found in the scene. Make sure it is added to a GameObject.");
         }
     }
 
@@ -84,10 +77,15 @@ public class LetterManager : MonoBehaviour
 
     private void DisplayLetterUI(GameObject uiElement)
     {
-        if(letterUI != null)
-        
-        {
-            letterUI.ShowLetterUI(uiElement);
+        if(uiElement.TryGetComponent<LetterUI>(out LetterUI letterUI)){
+            if(letterUI != null)
+            
+            {
+                letterUI.ShowLetterUI();
+            }
+        }
+        else{
+            Debug.LogError("LetterUI not found in the scene. Make sure it is added to a GameObject.", uiElement);
         }
     }
 

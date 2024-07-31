@@ -119,5 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 3510833752568382655, guid: 2be97bd2d84db524fa3ff72409dd9281, type: 3}
-  toleratedNoise: 10
+  toleratedNoise: 16
   isTriggered: 0

@@ -8,7 +8,6 @@ public class Spawner : MonoBehaviour
     
     [SerializeField] int toleratedNoise;
     public static int noiseData = 0 ;
-    private EnemyStateMachine stateMachine;
     static public bool isInstantiated = false ;
     public bool isTriggered = false;
 

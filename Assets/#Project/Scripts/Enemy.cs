@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
 
     private bool playerIsDead = false;
     public AudioSource spawnScreamer;
+    private PlayerControls playerControls;
     
 
 
@@ -44,6 +45,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         stateMachine = new EnemyStateMachine(agent, target, this);
         stateMachine.Initialize(stateMachine.patrolState);
+        playerControls = GetComponent<PlayerControls>();
     }
 
     void OnEnable()
@@ -109,7 +111,7 @@ public class Enemy : MonoBehaviour
             playerIsDead = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            
+            playerControls.enabled = false;
             
         }
     }

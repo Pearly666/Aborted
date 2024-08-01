@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class ReactToMicrophone : MonoBehaviour
 {
-    public Vector3 minScale, maxScale;
+    //public Vector3 minScale, maxScale;
     public AudioLoudnessDetector detector;
-    public float loudnessSensibility = 100f;
-    public float threshold = 0.1f;
+    public float loudnessSensibility;
+    public float threshold ;
     public GameObject Enemy;
     static public bool isInstantiated = false ;
     public static int noiseData = 0 ;
 
-    private void Start()
-    {
-        Enemy = GameObject.FindGameObjectWithTag("Enemy");
-    }
     private void Update()
     {
         float loudness = detector.GetLoudnessFromMicrophone()* loudnessSensibility;

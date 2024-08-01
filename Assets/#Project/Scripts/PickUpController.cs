@@ -66,6 +66,7 @@ public class PickUpController : MonoBehaviour
 
     private void Drop()
     {
+        if (LetterUI.readingLetter || PauseMenu.GameIsPaused) return;
         equipped = false;
         slotFull = false;
 

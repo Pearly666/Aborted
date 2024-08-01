@@ -13,6 +13,7 @@ public class SaltBehaviour : MonoBehaviour
             if (other.CompareTag("Ground"))
         {
             Instantiate(saltParticle,transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
             //salt_particle.transform.position = transform.position;
             
         }

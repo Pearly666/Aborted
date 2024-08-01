@@ -9,7 +9,7 @@ public class PlayerControls : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction Movement;
     private CharacterController characterController;
-    public AudioSource heartBeatAudioSource, chasedBeatAudioSource;
+    public AudioSource heartBeatAudioSource, chasedBeatAudioSource, ambiantNoise;
     
     private new Camera camera;
     private Vector3 forward, right;
@@ -35,6 +35,13 @@ public class PlayerControls : MonoBehaviour
 
         if (enemy == null) enemy = FindObjectOfType<Enemy>();
         IsChased();
+
+        if (PlayerInventory.hasKey)
+        {
+            heartBeatAudioSource.Stop();
+            chasedBeatAudioSource.Stop();
+            ambiantNoise.Stop();
+        }
         
     }
 

@@ -14,7 +14,7 @@ public class FillFromMicrophone : MonoBehaviour
 
     public float minimumSensitivity = 100;
     public float maximumSensitivity = 1000;
-    public float currentLoudnessSensitivity = 500;
+    public float currentLoudnessSensitivity;
     public float threshold = 0.1f;
 
     public GameObject screamText;

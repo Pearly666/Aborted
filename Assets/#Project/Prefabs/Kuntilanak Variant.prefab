@@ -305,8 +305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076b2fdff8e430940a5dd0e9e87e2691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minScale: {x: 0, y: 0, z: 0}
-  maxScale: {x: 0, y: 0, z: 0}
   detector: {fileID: 0}
   loudnessSensibility: 100
   threshold: 0.1
@@ -321,7 +319,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 02ccdd083d4703d49bf008a61d7e9a1f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 72c5fbd0185f5cb4cbd2a2c9b2556cd4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

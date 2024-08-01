@@ -21,7 +21,7 @@ public class LetterManager : MonoBehaviour
 
     private AudioSource audioSource;
 
-    //Singleton
+    
     public static LetterManager Instance;
 
     private void Awake()

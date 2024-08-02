@@ -20,4 +20,8 @@ public class LetterBehaviour : MonoBehaviour, IInteractable
         this.gameObject.SetActive(false);
         Destroy(gameObject);
     }
+
+    public static void Reset(){
+        papers = 0;
+    }
 }

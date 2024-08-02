@@ -88,4 +88,12 @@ public class LetterManager : MonoBehaviour
         }
     }
 
+    public static void Reset(){
+        LetterManager saveInstance = Instance;
+        Instance = null;
+        LetterBehaviour.Reset();
+        PlayerInventory.Reset();
+        Destroy(saveInstance.gameObject);
+    }
+
 }

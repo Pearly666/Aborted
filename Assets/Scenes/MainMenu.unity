@@ -656,7 +656,6 @@ GameObject:
   - component: {fileID: 339478807}
   - component: {fileID: 339478806}
   - component: {fileID: 339478805}
-  - component: {fileID: 339478804}
   m_Layer: 5
   m_Name: MicrophoneSelector
   m_TagString: Untagged
@@ -687,20 +686,6 @@ RectTransform:
   m_AnchoredPosition: {x: 153, y: 100}
   m_SizeDelta: {x: 371.4174, y: 38.6218}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &339478804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339478802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b325ee6bb15bdba4eaa39a544a4b0f19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sourceDropdown: {fileID: 339478805}
-  chosenDeviceIndex: 0
 --- !u!114 &339478805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,7 +745,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 339478804}
+      - m_Target: {fileID: 831633500}
         m_TargetAssemblyTypeName: MicrophoneSelector, Assembly-CSharp
         m_MethodName: ChooseMicrophone
         m_Mode: 0
@@ -1671,6 +1656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 831633498}
   - component: {fileID: 831633499}
+  - component: {fileID: 831633500}
   m_Layer: 5
   m_Name: AudioLoudnessMeter
   m_TagString: Untagged
@@ -1715,11 +1701,20 @@ MonoBehaviour:
   audioBar: {fileID: 1673965342}
   sensitivitySlider: {fileID: 136727156}
   detector: {fileID: 1272177112}
-  minimumSensitivity: 0.1
-  maximumSensitivity: 1000
-  currentLoudnessSensitivity: 550
-  threshold: 0.1
   screamText: {fileID: 2035806384}
+--- !u!114 &831633500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831633497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b325ee6bb15bdba4eaa39a544a4b0f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceDropdown: {fileID: 339478805}
 --- !u!1 &852190758
 GameObject:
   m_ObjectHideFlags: 0

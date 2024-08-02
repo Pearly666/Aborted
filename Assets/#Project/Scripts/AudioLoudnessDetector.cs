@@ -5,15 +5,17 @@ using UnityEngine;
 public class AudioLoudnessDetector : MonoBehaviour
 {
     public int sampleWindow = 64;
+    public static float currentLoudnessSensitivity = FillFromMicrophone.currentLoudnessSensitivity;
 
     private AudioClip _microphoneClip;
     private string _microphoneName;
+    public static int chosenDeviceIndex;
 
 
 
     private void Start()
     {
-        MicrophoneToAudioClip(0);
+        MicrophoneToAudioClip();
     }
 
     private void OnEnable()
@@ -21,9 +23,9 @@ public class AudioLoudnessDetector : MonoBehaviour
         MicrophoneSelector.OnMicrophoneChoiceChanged += ChangeMicrophoneSource;
     }
 
-    private void ChangeMicrophoneSource(int deviceIndex)
+    private void ChangeMicrophoneSource()
     {
-        MicrophoneToAudioClip(deviceIndex);
+        MicrophoneToAudioClip();
     }
 
     private void OnDisable()
@@ -31,14 +33,14 @@ public class AudioLoudnessDetector : MonoBehaviour
         MicrophoneSelector.OnMicrophoneChoiceChanged -= ChangeMicrophoneSource;
     }
 
-    private void MicrophoneToAudioClip(int microphoneIndex)
+    private void MicrophoneToAudioClip()
     {
         // foreach( var name in Microphone.devices)
         // {
         //     Debug.Log(name);
         // }
 
-        _microphoneName = Microphone.devices[microphoneIndex];
+        _microphoneName = Microphone.devices[MicrophoneSelector.chosenDeviceIndex];
         _microphoneClip = Microphone.Start(_microphoneName, true, 20, AudioSettings.outputSampleRate);
     }
 

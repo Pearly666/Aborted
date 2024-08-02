@@ -165,10 +165,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 733168051605750173, guid: b00118848f819bb4dbb9faa7c7a7c355,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4048302809466563028}
-    - targetCorrespondingSourceObject: {fileID: 733168051605750173, guid: b00118848f819bb4dbb9faa7c7a7c355,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4061209447983998167}
     - targetCorrespondingSourceObject: {fileID: 733168051605750173, guid: b00118848f819bb4dbb9faa7c7a7c355,
         type: 3}
@@ -293,22 +289,6 @@ MonoBehaviour:
   WayPoint: {fileID: 0}
   enemySounds: {fileID: 4061209447983998167}
   spawnScreamer: {fileID: -7322325459609932488}
---- !u!114 &4048302809466563028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3510833752568382655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 076b2fdff8e430940a5dd0e9e87e2691, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detector: {fileID: 0}
-  loudnessSensibility: 100
-  threshold: 0.1
-  Enemy: {fileID: 0}
 --- !u!82 &4061209447983998167
 AudioSource:
   m_ObjectHideFlags: 0

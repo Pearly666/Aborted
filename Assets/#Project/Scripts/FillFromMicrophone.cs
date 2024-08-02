@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(MicrophoneSelector))]
 public class FillFromMicrophone : MonoBehaviour
 {
     public Image audioBar;
@@ -12,14 +13,15 @@ public class FillFromMicrophone : MonoBehaviour
     public AudioLoudnessDetector detector;
 
 
-    public float minimumSensitivity = 100;
-    public float maximumSensitivity = 1000;
-    public float currentLoudnessSensitivity;
-    public float threshold = 0.1f;
+    public static float minimumSensitivity = 10;
+    public static float maximumSensitivity = 100;
+    public static float currentLoudnessSensitivity = 50;
+    public static float threshold = 0.1f;
 
     public GameObject screamText;
 
     public static UnityAction OnScreamDetected;
+
 
     private void Start()
     {

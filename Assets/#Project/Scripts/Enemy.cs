@@ -22,13 +22,13 @@ public class Enemy : MonoBehaviour
 
     private bool playerIsDead = false;
     public AudioSource spawnScreamer;
-    private PlayerControls playerControls;
+    public PlayerControls playerControls;
     
 
 
     public bool isChasing
     {
-        get { return stateMachine.chaseState.isChasing && Spawner.isInstantiated; }
+        get { return stateMachine.chaseState.isChasing && Spawner.isInstantiated && ReactToMicrophone.isInstantiated; }
         //set { stateMachine.SetChasingState(value);}
     }
 
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         stateMachine = new EnemyStateMachine(agent, target, this);
         stateMachine.Initialize(stateMachine.patrolState);
-        playerControls = GetComponent<PlayerControls>();
+        playerControls = FindAnyObjectByType<PlayerControls>();
     }
 
     void OnEnable()
@@ -105,14 +105,8 @@ public class Enemy : MonoBehaviour
 
         else if (other.CompareTag("Player"))
         {
-            Debug.Log("Enemy is going to kill you");
-            enemyAnim.SetBool("Attack", true);
-            enemySounds.Play();
-            playerIsDead = true;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            playerControls.enabled = false;
-            
+            GameOver();
+
         }
     }
 
@@ -122,6 +116,20 @@ public class Enemy : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
 
+    }
+
+    void GameOver()
+    {
+        Debug.Log("Enemy is going to kill you");
+        enemyAnim.SetBool("Attack", true);
+        enemySounds.Play();
+        playerIsDead = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        LetterManager.Reset();
+        playerControls.enabled = false;
+        //if(!enemySounds.isPlaying) SceneManager.LoadScene("GameOver");
+            
     }
 
 

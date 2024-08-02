@@ -10,6 +10,8 @@ public class FinalDoor : MonoBehaviour
     private DoorBehavior doorBehavior;
     public GameObject chains;
     public UnityEvent whenUnlocked;
+    public AudioSource finalMusic;
+    
 
 
 
@@ -21,14 +23,13 @@ public class FinalDoor : MonoBehaviour
         
     }
 
-    void Update()
+    public void UnLock()
     {
-        if(PlayerInventory.hasKey == true)
-        {
             chains.SetActive(false);
             doorBehavior.isLocked = false;
             whenUnlocked?.Invoke();
+
             Debug.Log("Final door is opened");
-        }
+        
     }
 }

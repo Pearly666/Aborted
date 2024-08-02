@@ -6,6 +6,7 @@ public class AudioTrigger : MonoBehaviour
 {
     public AudioSource audioTrigger;
     public GameObject nextTrigger;
+    public bool haveBeenPlayed = false;
 
     void OnTriggerEnter(Collider other)
     {
@@ -19,9 +20,14 @@ public class AudioTrigger : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && !audioTrigger.isPlaying)
+        if (other.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
+            haveBeenPlayed = true;
         }
     } 
+
+    void Update()
+    {
+        if (haveBeenPlayed && !audioTrigger.isPlaying) Destroy(this.gameObject);
+    }
 }

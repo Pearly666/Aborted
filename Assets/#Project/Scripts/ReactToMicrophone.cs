@@ -1,22 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ReactToMicrophone : MonoBehaviour
 {
     //public Vector3 minScale, maxScale;
     public AudioLoudnessDetector detector;
-    public float loudnessSensibility;
-    public float threshold ;
+    public float LoudnessSensitivity = FillFromMicrophone.currentLoudnessSensitivity;
+    public float threshold = 0.01f;
     public GameObject Enemy;
-    static public bool isInstantiated = false ;
+    public static bool isInstantiated = false ;
     public static int noiseData = 0 ;
 
+    void Start()
+    {
+        Debug.Log($"sensibilité: {FillFromMicrophone.currentLoudnessSensitivity}");
+        Debug.Log($"microphone: {MicrophoneSelector.chosenDeviceIndex}");
+    }
     private void Update()
     {
-        float loudness = detector.GetLoudnessFromMicrophone()* loudnessSensibility;
-        Debug.Log(loudness);
-        if (loudness < threshold && isInstantiated == false)
+        float loudness = detector.GetLoudnessFromMicrophone()*LoudnessSensitivity;
+        Debug.Log($"spawn {loudness > threshold}");
+        Debug.Log($"loudness {loudness}");
+        if (loudness > threshold && isInstantiated == false)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             Vector3 monsterPos = player.transform.position + player.transform.forward*5f;

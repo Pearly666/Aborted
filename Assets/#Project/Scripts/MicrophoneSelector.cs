@@ -7,9 +7,9 @@ using UnityEngine.Events;
 public class MicrophoneSelector : MonoBehaviour
 {
     public TMP_Dropdown sourceDropdown;
-    public int chosenDeviceIndex = 0;
+    public static int chosenDeviceIndex = 0;
 
-    public static UnityAction<int> OnMicrophoneChoiceChanged;
+    public static UnityAction OnMicrophoneChoiceChanged;
 
     void Start()
     {
@@ -33,7 +33,7 @@ public class MicrophoneSelector : MonoBehaviour
     public void ChooseMicrophone(int optionIndex)
     {
         chosenDeviceIndex = optionIndex;
-        OnMicrophoneChoiceChanged?.Invoke(chosenDeviceIndex);
+        OnMicrophoneChoiceChanged?.Invoke();
     }
 
     

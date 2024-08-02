@@ -7,13 +7,29 @@ public class PlayerInventory : MonoBehaviour
 {
     public TMP_Text inventoryLabel;
     public static int lastInventory;
-    public static bool hasKey;
-    public AudioSource whispers;
+    private static bool _hasKey;
+
+    public static bool hasKey
+    {
+        get { return _hasKey; }
+        set
+        {
+            if (value)
+            {
+                FindObjectOfType<FinalDoor>().UnLock();
+            }
+            _hasKey = value;
+        }
+    }
+
+
+    [SerializeField] private bool debug = false;
+
 
     void OnEnable()
     {
         LetterBehaviour.onPickup.AddListener(UpdateInventory);
-        
+
     }
 
     void OnDisable()
@@ -28,11 +44,17 @@ public class PlayerInventory : MonoBehaviour
         {
             inventoryLabel.SetText($"Letters: {value} / 10");
             lastInventory = value;
-            if(lastInventory == 10){
-                whispers.Play();
+            if (debug || lastInventory == 10)
+            {
                 FindObjectOfType<KeyBehaviour>(includeInactive: true).gameObject.SetActive(true);
             }
+
         }
+    }
+
+    public static void Reset()
+    {
+        lastInventory = 0;
     }
 
 

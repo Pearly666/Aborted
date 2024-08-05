@@ -718,31 +718,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sarah Bitton
-
-
-
-
-    XXXXX
-
-
-
-
-
-    XXXX
-
-
-
-
-
-    Fanny Schreiber
-
-
-
-
-
-    Team
-    Panoptes'
+  m_text: "Sarah Bitton\n\n\n\nCGTrader\n    -names\nSketchfab\n    -names\n\n\nfreesound.org\n   
+    -names\n\n\n\nFanny Schreiber\n\n\n\n\nTeam Panoptes"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b435e9977cc4c644aa0d112df59c0aa5, type: 2}
   m_sharedMaterial: {fileID: -9165381539148369605, guid: b435e9977cc4c644aa0d112df59c0aa5,
@@ -1090,6 +1067,7 @@ MonoBehaviour:
 
 
     Assets
+
 
 
 

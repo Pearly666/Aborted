@@ -284,11 +284,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   agent: {fileID: 0}
-  rayon: 20
-  patrolTime: 35
+  rayon: 25
+  patrolTime: 20
   WayPoint: {fileID: 0}
   enemySounds: {fileID: 4061209447983998167}
   spawnScreamer: {fileID: -7322325459609932488}
+  playerControls: {fileID: 0}
 --- !u!82 &4061209447983998167
 AudioSource:
   m_ObjectHideFlags: 0

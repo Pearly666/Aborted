@@ -1701,6 +1701,8 @@ MonoBehaviour:
   audioBar: {fileID: 1673965342}
   sensitivitySlider: {fileID: 136727156}
   detector: {fileID: 1272177112}
+  minimumSensitivity: 1
+  maximumSensitivity: 20
   screamText: {fileID: 2035806384}
 --- !u!114 &831633500
 MonoBehaviour:

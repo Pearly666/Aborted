@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
         {
             if (hit.collider.CompareTag("Player"))
             {
-                if (Vector3.Angle(enemyFacing, enemyToPlayer) <= 120f)
+                if (Vector3.Angle(enemyFacing, enemyToPlayer) <= 180f)
                 {
                     return true;
                 }
@@ -81,8 +81,9 @@ public class Enemy : MonoBehaviour
         if (patrolTime < 0)
         {
             Spawner.noiseData = 0;
-            Destroy(this.gameObject);
             Spawner.isInstantiated = false;
+            Destroy(this.gameObject);
+            
         }
         if (playerIsDead)
             {

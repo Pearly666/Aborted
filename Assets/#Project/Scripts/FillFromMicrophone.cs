@@ -13,8 +13,8 @@ public class FillFromMicrophone : MonoBehaviour
     public AudioLoudnessDetector detector;
 
 
-    public static float minimumSensitivity = 10;
-    public static float maximumSensitivity = 100;
+    public float minimumSensitivity = 10;
+    public float maximumSensitivity = 100;
     public static float currentLoudnessSensitivity = 50;
     public static float threshold = 0.1f;
 
@@ -37,6 +37,7 @@ public class FillFromMicrophone : MonoBehaviour
         if (loudness < threshold) loudness = 0.01f;
         
         audioBar.fillAmount = loudness;
+        Debug.Log(loudness);
 
         if (loudness > .5f) OnScreamDetected?.Invoke();
 

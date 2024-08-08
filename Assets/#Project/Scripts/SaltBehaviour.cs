@@ -7,7 +7,7 @@ public class SaltBehaviour : MonoBehaviour
     public GameObject saltParticle;
     public GameObject saltContainer;
     public AudioSource brokenGlass;
-    public PickUpController pickUpController;
+    //public PickUpController pickUpController;
     
 
     void OnTriggerEnter(Collider other)
@@ -16,7 +16,8 @@ public class SaltBehaviour : MonoBehaviour
         {
             Instantiate(saltParticle,transform.position, Quaternion.identity);
             brokenGlass.Play();
-            pickUpController.enabled = false;
+            gameObject.SetActive(false);
+            //pickUpController.enabled = false;
             
             //salt_particle.transform.position = transform.position;
             

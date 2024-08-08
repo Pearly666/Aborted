@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour
     public bool isChasing
     {
         get { return stateMachine.chaseState.isChasing && Spawner.isInstantiated && ReactToMicrophone.isInstantiated; }
-        //set { stateMachine.SetChasingState(value);}
     }
 
     void Awake()
@@ -128,9 +127,9 @@ public class Enemy : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         LetterManager.Reset();
-        playerControls.enabled = false;
-        //if(!enemySounds.isPlaying) SceneManager.LoadScene("GameOver");
-            
+        Spawner.Reset();
+        Time.timeScale = 0f;
+        //playerControls.enabled = false;
     }
 
 

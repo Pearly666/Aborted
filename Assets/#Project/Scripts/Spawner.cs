@@ -38,4 +38,9 @@ public class Spawner : MonoBehaviour
             isTriggered = false;
         }
     }
+
+    public static void Reset()
+    {
+        noiseData = 0;
+    }
 }
